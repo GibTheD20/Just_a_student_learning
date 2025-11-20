@@ -1,0 +1,113 @@
+import java.util.Scanner;
+
+public class QandA {
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+				
+		int correct = 0;
+		
+		String answer;
+		
+		//Intro to Quiz
+		
+		System.out.println("This is the quiz game!");
+		System.out.println("Answer by typing:A,B,C or D!\n");
+		
+		//Question 1 below
+		
+		System.out.println("1.Which primitive type stores characters?");
+		System.out.println("A. int");
+		System.out.println("B. bool");
+		System.out.println("C. char");
+		System.out.println("D. double");
+		System.out.println("Enter your answer: ");
+		answer = input.nextLine().toUpperCase();
+		
+	if (answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")) {
+		switch(answer) {
+		case "C":
+			correct = correct + 1;
+			break;
+		}
+	} else {
+		System.out.println("Invalid entry, try again using A B C or D");
+	}
+
+	System.out.println();
+	
+	//Question 2
+	
+		System.out.println("True or False is which primitive type?");
+		System.out.println("A. int");
+		System.out.println("B. void");
+		System.out.println("C. char");
+		System.out.println("D. bool");
+		answer = input.nextLine().toUpperCase();
+	if (answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")) {
+		switch(answer) {
+		case "D":
+			correct = correct + 1;
+		}
+	} else {
+		System.out.println("Invalid entry, try again using A B C or D");
+	}
+	//Question 3
+	
+		System.out.println("Which is a derived data type?");
+		System.out.println("A. class");
+		System.out.print("B. float");
+		System.out.println("C. void");
+		System.out.println("D. array");
+		answer = input.nextLine().toUpperCase();
+		if (answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")) {
+			switch(answer) {
+			case "D":
+				correct = correct + 1;
+		}
+	} else {
+		 System.out.println("Invalid entry, try again using A B C or D");
+		}
+	//Question 4
+		System.out.println("What is the primary purpose of an if statement?");
+		System.out.println("A.To repeatedly execute a block of code.");
+		System.out.print("B.To define a new function");
+		System.out.println("C.To conditionally execute a block of code if a boolean condition is true");
+		System.out.println("D.To handle exceptions and errors.");
+		answer = input.nextLine().toUpperCase();
+		if(answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")) {
+			switch(answer) {
+			case "C":
+				correct= correct + 1;
+		}
+	} else {
+		System.out.println("Invalid entry, try again using A B C or D.");
+		}
+	//Question 5
+		
+		System.out.println("What keyword creates a new object?");
+		System.out.println("A. Object");
+		System.out.print("B. Make");
+		System.out.println("C. New");
+		System.out.println("D. Create");
+		answer = input.nextLine().toUpperCase();
+		if(answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")) {
+			switch(answer) {
+			case "C":
+				correct = correct + 1;
+		}
+	} else {
+		System.out.println("Invalid entry, try again using A B C or D.");
+		}
+	System.out.println();
+	
+	}
+}
+	double score = (correct / 5.0) * 100;
+
+	System.out.println("You answered " + correct + " out of 5 correctly.");
+	System.out.println("Final Score: " + score + "%");
+
+	input.close();
+}
+}
