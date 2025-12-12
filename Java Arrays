@@ -1,0 +1,108 @@
+import java.util.ArrayList ;
+
+public class ArrayAverages {
+
+    public static void main(String[] args) {
+
+        // Array of stock prices
+        int[] stockPrices = {124, 178, 234, 656, 1210} ;
+
+        // ArrayList of stock prices
+        ArrayList<Integer> stockList = new ArrayList<>() ;
+        for (int price : stockPrices) {
+            stockList.add(price) ;
+        }
+
+        // Calling each method
+        double average = calculateAveragePrice(stockPrices) ;
+        double averageList = calculateAveragePrice(stockList) ;
+        int maximum = findMaximumPrice(stockPrices) ;
+        int maximumList = findMaximumPrice(stockList) ;
+        int occurrences = countOccurrences(stockPrices, 178) ;
+        ArrayList<Integer> cumulativeSum = computeCumulativeSum(stockList) ;
+
+        // Print results
+        System.out.println("Average stock price: " + average) ;
+        System.out.println("Average stock price (ArrayList): " + averageList) ;
+        System.out.println("Maximum stock price: " + maximum) ;
+        System.out.println("Maximum stock price (ArrayList): " + maximumList) ;
+        System.out.println("Occurrences of 178: " + occurrences) ;
+        System.out.println("Cumulative sum list: " + cumulativeSum) ;
+    }
+
+    // 1a) Calculate average price, goes through the array, adds all the prices together, and returns the average.
+    public static double calculateAveragePrice(int[] prices) {
+       
+    	int sum = 0 ;
+        
+        for (int price : prices) {
+            sum += price ;
+        }
+        return (double) sum / prices.length ;
+    }
+
+    // 1b) Calculate average price for ArrayList, same idea as the array version, but uses an ArrayList and its size().
+    public static double calculateAveragePrice(ArrayList<Integer> prices) {
+        
+    	int sum = 0 ;
+       
+        for (int price : prices) {
+            sum += price ;
+        }
+        return (double) sum / prices.size() ;
+    }
+
+    // 2a) Find maximum price, starts with the first price as the max, then checks the rest to find the highest value.
+
+    public static int findMaximumPrice(int[] prices) {
+        
+    	int max = prices[0] ;
+       
+        for (int i = 1 ; i < prices.length ; i++) {
+            if (prices[i] > max) {
+                max = prices[i] ;
+            }
+        }
+        return max ;
+    }
+
+    // 2b) Find maximum price for ArrayList, looks at each value in the list and updates max whenever it finds a bigger number.
+    public static int findMaximumPrice(ArrayList<Integer> prices) {
+
+    	int max = prices.get(0) ;
+       
+        for (int i = 1 ; i < prices.size() ; i++) {
+            if (prices.get(i) > max) {
+                max = prices.get(i) ;
+            }
+        }
+        return max ;
+    }
+
+    // 3) Count how many times a price occurs.
+    public static int countOccurrences(int[] prices, int target) {
+        
+    	int count = 0 ;
+       
+        for (int price : prices) {
+            if (price == target) {
+                count++ ;
+            }
+        }
+        return count ;
+    }
+
+    // 4) Compute cumulative sum for ArrayList, keeps a running total and adds each updated total into a new ArrayList.
+    public static ArrayList<Integer> computeCumulativeSum(ArrayList<Integer> prices) {
+
+        ArrayList<Integer> result = new ArrayList<>() ;
+        int runningTotal = 0 ;
+
+        for (int price : prices) {
+            runningTotal += price ;     // Adds current price to running total
+            result.add(runningTotal) ;  // Adds updated total to list
+        }
+
+        return result ;
+    }
+}
